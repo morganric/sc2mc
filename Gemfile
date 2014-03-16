@@ -18,7 +18,10 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-soundcloud', '~> 1.0.0'
 gem "cancan"
-gem  "debugger"
+
+group :development, :test do
+  gem  "debugger"
+end
 
 group :development do
   gem 'better_errors'
