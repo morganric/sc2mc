@@ -1,3 +1,6 @@
 <%# add navigation links to this file %>
 <li><%= link_to 'About', page_path('about') %></li>
-<li><%= link_to 'Contact', new_contact_path %></li>
+<li><%= link_to 'Signup', new_user_registration_path unless current_user %></li>
+<li><%= link_to 'Signin', new_user_session_path unless current_user %></li>
+<li><%= link_to 'Signout', destroy_user_session_path, :method => :delete if current_user %></li>
+<li><%= link_to 'Sign in with Soundcloud', user_omniauth_authorize_path(:soundcloud) unless current_user %></li>

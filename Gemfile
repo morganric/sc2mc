@@ -14,6 +14,12 @@ gem 'gibbon'
 gem 'google_drive'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-soundcloud', '~> 1.0.0'
+gem "cancan"
+gem  "debugger"
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
