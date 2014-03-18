@@ -2,16 +2,14 @@
 
 <%= link_to 'Connect with Soundcloud', user_omniauth_authorize_path(:soundcloud) if current_user unless @soundcloud_access_token %>
 
-<% 	if current_user.access_token != nil %>
-<h2><%= @sc.username %></h2>
+<% if @soundcloud_access_token != nil %>
+	<h2><%= @sc.username %></h2>
 
-<ul>
-	<% @tracks.each do |track| %>
-		<li><%= link_to track.title, upload_path(:track => {title: track.title, download_url: track.download_url}), :method => :get %></li>
-	<% end %>
-
-
-</ul>
+	<ul>
+		<% @tracks.each do |track| %>
+			<li><%= link_to track.title, upload_path(:track => {title: track.title, download_url: track.download_url}), :method => :get %></li>
+		<% end %>
+	</ul>
 
 <% end %>
 
