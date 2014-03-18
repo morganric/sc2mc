@@ -4,6 +4,7 @@
 
 <% if @soundcloud_access_token != nil %>
 	<h2><%= @sc.username %></h2>
+	<p><%= @soundcloud_access_token %>
 
 	<ul>
 		<% @tracks.each do |track| %>
