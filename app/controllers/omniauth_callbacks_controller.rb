@@ -38,7 +38,7 @@ private
     # since you'll be able to reuse the same permit list between create and update. Also, you
     # can specialize this method with per-user checking of permissible attributes.
 def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation, :remember_me, :provider, :uid, :access_token)
+  params.require(:user).permit(:name, :email, :password, :password_confirmation, :remember_me, :provider, :uid, :access_token, :mixcloud_access_token)
 end
 
 end
