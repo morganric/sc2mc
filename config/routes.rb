@@ -11,6 +11,7 @@ unauthenticated do
   root to: "home#welcome"
 end
 
-post 'upload' => 'home#upload', as: 'upload'
+post 'upload' => 'home#upload', as: 'post_upload'
+get 'upload' => 'home#upload', as: 'upload'
 
 end
