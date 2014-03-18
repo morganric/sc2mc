@@ -229,6 +229,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :soundcloud, '0a5a8824df0c97aedb12448786a6f1de', 'd57204e408d1cc467f403174788a2397'
+  require "omniauth-mixcloud" 
   config.omniauth :mixcloud, 'wpLF5wDyDUQYQJnrFY', 'jnu8tAF89tecB99ztdautCUduWXnQTUj'
 
   # ==> Warden configuration

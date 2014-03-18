@@ -27,6 +27,8 @@ def welcome
 end
 
 def upload
+
+	require "omniauth-mixcloud"
 	@title = params[:track]['title']
 	@download_url = params[:track]['download_url']
 	@download_url = "#{@download_url}?client_id=0a5a8824df0c97aedb12448786a6f1de" 
@@ -50,9 +52,7 @@ def upload
 end
 
 def mixcloud
-	require 'mixcloud'
-
-	
+	debugger
 
 end
 
