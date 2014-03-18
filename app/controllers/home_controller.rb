@@ -4,8 +4,8 @@ require 'soundcloud'
 
 def index
 			
-	if current_user && current_user.access_token
-	@access_token = current_user.access_token # || '1-73146-129981-12eec2319b526fd6f'  
+	if current_user
+	@access_token = current_user.access_token || '1-73146-129981-12eec2319b526fd6f'  
 
 
 	client = SoundCloud.new({

@@ -20,8 +20,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     user.save
 
-    debugger
-
     if user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Soundcloud"
       sign_in_and_redirect user, :event => :authentication

@@ -10,9 +10,12 @@ module Authentication
         # record = where(provider: auth.provider, uid: auth.uid.to_s).first
         # record || create(provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0,20], access_token: auth.credentials.token)
         record = user
-        record.provider = auth.provider
-        record.uid = auth.uid
-        record.access_token = auth.credentials.token
+        unless auth.provider == 'mixcloud'
+          record.provider = auth.provider
+          record.uid = auth.uid
+          record.access_token = auth.credentials.token
+        else
+        end
         return record
       end
     end
