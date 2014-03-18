@@ -16,9 +16,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
    def mixcloud
+    
+    debugger
     user = User.find_for_oauth(request.env["omniauth.auth"], current_user)
-
-    user.save
 
     if user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Mixcloud"
