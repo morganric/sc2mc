@@ -19,5 +19,8 @@ module Sc2mc
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # mixcloud Oauth2 error
+    config.i18n.enforce_available_locales = true
   end
 end
