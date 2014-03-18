@@ -16,8 +16,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
    def mixcloud
-    
+
     debugger
+    
     user = User.find_for_oauth(request.env["omniauth.auth"], current_user)
 
     if user.persisted?
