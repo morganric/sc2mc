@@ -2,7 +2,8 @@
 
 <%= link_to 'Connect with Soundcloud', user_omniauth_authorize_path(:soundcloud) if current_user unless @soundcloud_access_token %>
 
-<h2><%= @sc %></h2>
+<% 	if current_user.access_token != nil %>
+<h2><%= @sc.username %></h2>
 
 <ul>
 	<% @tracks.each do |track| %>
@@ -12,5 +13,6 @@
 
 </ul>
 
+<% end %>
 
 <%= link_to 'Connect with MixCloud', user_omniauth_authorize_path(:mixcloud) %>

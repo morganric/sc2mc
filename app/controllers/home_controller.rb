@@ -5,8 +5,6 @@ require 'soundcloud'
 def index
 			
 	if current_user
-
-		if current_user.access_token != nil
 			@soundcloud_access_token = current_user.access_token 
 
 
@@ -16,9 +14,8 @@ def index
 				  :access_token      => @soundcloud_access_token
 				})
 
-			@sc = client.get('/me').username
+			@sc = client.get('/me')
 			@tracks = client.get('/me/tracks')
-		end
 	end
 	
 end
