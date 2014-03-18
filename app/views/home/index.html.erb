@@ -1,4 +1,4 @@
-<h1>Soundcloud</h1>
+<h1>Welcome</h1>
 
 <%= link_to 'Connect with Soundcloud', user_omniauth_authorize_path(:soundcloud) if current_user unless @soundcloud_access_token %>
 
@@ -13,4 +13,5 @@
 
 <% end %>
 
+<br/>
 <%= link_to 'Connect with MixCloud', user_omniauth_authorize_path(:mixcloud) %>
