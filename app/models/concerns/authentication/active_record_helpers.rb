@@ -15,7 +15,7 @@ module Authentication
           record.uid = auth.uid
           record.access_token = auth.credentials.token
         else
-          
+          record.access_token = auth.credentials.token
         end
         return record
       end
