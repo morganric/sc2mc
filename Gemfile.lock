@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/morganric/omniauth-mixcloud.git
-  revision: 77d22c50d74dae50851fb843aeb28303531268e3
+  revision: bc4050641d026a5ce3abdd4c4c0449dcbc98f93d
   specs:
     omniauth-mixcloud (1.0.1)
       omniauth-oauth2 (~> 1.1.0)
