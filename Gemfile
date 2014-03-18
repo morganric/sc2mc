@@ -18,6 +18,11 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-soundcloud', '~> 1.0.0'
 gem "cancan"
+gem "soundcloud"
+gem 'open_uri_redirections'
+gem "ruby-audioinfo"
+gem "mixcloud"
+gem 'omniauth-mixcloud', :git => 'git://github.com/morganric/omniauth-mixcloud.git'#, :path => '~/sites/ruby/mygems/omniauth-mixcloud'
 
 group :development, :test do
   gem  "debugger"

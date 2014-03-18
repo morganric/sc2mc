@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/morganric/omniauth-mixcloud.git
+  revision: 8d01d93c7f2ebc0b3c8418c91edf3657c8c652f6
+  specs:
+    omniauth-mixcloud (1.0.1)
+      omniauth-oauth2 (~> 1.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,6 +34,8 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    apetag (1.1.5)
+      cicphash (>= 1.0.0)
     arel (4.0.2)
     atomic (1.1.15)
     bcrypt (3.1.7)
@@ -46,6 +55,7 @@ GEM
     celluloid-io (0.15.0)
       celluloid (>= 0.15.0)
       nio4r (>= 0.5.0)
+    cicphash (1.1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -78,6 +88,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    flacinfo-rb (0.4)
     formatador (0.2.4)
     gibbon (1.1.1)
       httparty
@@ -100,6 +111,10 @@ GEM
     hashie (2.0.5)
     high_voltage (2.1.0)
     hike (1.2.3)
+    httmultiparty (0.3.12)
+      httparty (>= 0.7.3)
+      mimemagic
+      multipart-post
     httparty (0.13.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -125,8 +140,14 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mimemagic (0.2.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    mixcloud (1.0.0)
+      json (>= 1.6.1)
+      rest-client (>= 1.6.7)
+    moumar-wmainfo-rb (0.8)
+    mp4info (1.7.3)
     multi_json (1.9.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -150,6 +171,7 @@ GEM
       omniauth (~> 1.2)
     omniauth-soundcloud (1.0.1)
       omniauth-oauth2 (~> 1.1.0)
+    open_uri_redirections (0.1.1)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -187,6 +209,17 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.3)
       ffi (>= 0.5.0)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    ruby-audioinfo (0.4)
+      apetag (>= 1.1.4)
+      flacinfo-rb (>= 0.4)
+      moumar-wmainfo-rb (>= 0.7)
+      mp4info (>= 1.7.3)
+      ruby-mp3info (>= 0.8)
+      ruby-ogginfo (>= 0.7)
+    ruby-mp3info (0.8.3)
+    ruby-ogginfo (0.7.2)
     sass (3.2.15)
     sass-rails (4.0.2)
       railties (>= 4.0.0, < 5.0)
@@ -197,6 +230,9 @@ GEM
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
     slop (3.5.0)
+    soundcloud (0.3.2)
+      hashie (~> 2.0)
+      httmultiparty (~> 0.3.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -249,8 +285,11 @@ DEPENDENCIES
   hub
   jbuilder (~> 1.2)
   jquery-rails
+  mixcloud
   omniauth
+  omniauth-mixcloud!
   omniauth-soundcloud (~> 1.0.0)
+  open_uri_redirections
   pg
   quiet_assets
   rails (= 4.0.2)
@@ -259,8 +298,10 @@ DEPENDENCIES
   rb-fchange
   rb-fsevent
   rb-inotify
+  ruby-audioinfo
   sass-rails (~> 4.0.0)
   simple_form
+  soundcloud
   sqlite3
   thin
   turbolinks

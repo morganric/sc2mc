@@ -1,3 +1,13 @@
-<h1>Home</h1>
+<h1>Soundcloud</h1>
 
-<%= @sc %>
+<%= link_to 'Connect with Soundcloud', user_omniauth_authorize_path(:soundcloud) if current_user unless @sc %>
+
+<h2><%= @sc %></h2>
+
+<ul>
+	<% @tracks.each do |track| %>
+		<li><%= link_to track.title, upload_path(:track => {title: track.title, download_url: track.download_url}), :method => :post %></li>
+	<% end %>
+
+
+</ul>

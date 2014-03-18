@@ -1,0 +1,12 @@
+<h1>Upload to Mixcloud</h1>
+
+<%= link_to "Download #{@title}", @download_url %>
+<br/>
+<%= @info %>
+<br/>
+
+<%= link_to 'Connect with MixCloud', user_omniauth_authorize_path(:mixcloud) if current_user %>
+
+
+
+
