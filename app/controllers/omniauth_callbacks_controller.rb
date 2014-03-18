@@ -17,18 +17,20 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def mixcloud
 
-    user = User.find_for_oauth(request.env["omniauth.auth"], current_user)
+    debugger 
 
-    user.save
+    # user = User.find_for_oauth(request.env["omniauth.auth"], current_user)
 
-    if user.persisted?
-          debugger
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Mixcloud"
-      sign_in_and_redirect user, :event => :authentication
-    else
-      session["devise.mixcloud_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
-    end
+    # user.save
+
+    # if user.persisted?
+    #       debugger
+    #   flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Mixcloud"
+    #   sign_in_and_redirect user, :event => :authentication
+    # else
+    #   session["devise.mixcloud_data"] = request.env["omniauth.auth"]
+    #   redirect_to new_user_registration_url
+    # end
 
   end
 

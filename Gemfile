@@ -15,7 +15,7 @@ gem 'google_drive'
 gem 'high_voltage'
 gem 'simple_form'
 gem 'devise'
-gem 'omniauth'
+gem 'omniauth', '~> 1.0.3'
 gem 'omniauth-soundcloud', '~> 1.0.0'
 gem "cancan"
 gem "soundcloud"
