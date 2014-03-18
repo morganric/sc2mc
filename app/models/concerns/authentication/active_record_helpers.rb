@@ -17,6 +17,7 @@ module Authentication
         else
           record.mixcloud_access_token = auth.credentials.token
         end
+        record.save
         return record
       end
     end
