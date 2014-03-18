@@ -5,18 +5,20 @@ require 'soundcloud'
 def index
 			
 	if current_user
-	@access_token = current_user.access_token || '1-73146-129981-12eec2319b526fd6f'  
+
+		if current_user.access_token != nil
+			@access_token = current_user.access_token 
 
 
-	client = SoundCloud.new({
-		  :client_id     => '0a5a8824df0c97aedb12448786a6f1de',
-		  :client_secret => 'd57204e408d1cc467f403174788a2397',
-		  :access_token      => @access_token
-		})
+			client = SoundCloud.new({
+				  :client_id     => '0a5a8824df0c97aedb12448786a6f1de',
+				  :client_secret => 'd57204e408d1cc467f403174788a2397',
+				  :access_token      => @access_token
+				})
 
-	@sc = client.get('/me').username
-	@tracks = client.get('/me/tracks')
-
+			@sc = client.get('/me').username
+			@tracks = client.get('/me/tracks')
+		end
 	end
 	
 end
