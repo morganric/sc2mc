@@ -7,13 +7,13 @@ def index
 	if current_user
 
 		if current_user.access_token != nil
-			@access_token = current_user.access_token 
+			@soundcloud_access_token = current_user.access_token 
 
 
 			client = SoundCloud.new({
 				  :client_id     => '0a5a8824df0c97aedb12448786a6f1de',
 				  :client_secret => 'd57204e408d1cc467f403174788a2397',
-				  :access_token      => @access_token
+				  :access_token      => @soundcloud_access_token
 				})
 
 			@sc = client.get('/me').username
