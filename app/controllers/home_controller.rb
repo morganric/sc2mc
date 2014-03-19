@@ -7,19 +7,20 @@ def index
 	if current_user
 		if current_user.provider = 'soundcloud'
 		@soundcloud_access_token = current_user.access_token 
-		@mixcloud_access_token = current_user.mixcloud_access_token 
 
-		 if @soundcloud_access_token != nil
+			 if @soundcloud_access_token != nil
 
-			client = Soundcloud.new({
-				  :client_id     => '0a5a8824df0c97aedb12448786a6f1de',
-				  :client_secret => 'd57204e408d1cc467f403174788a2397',
-				  :access_token      => @soundcloud_access_token
-				})
+				client = Soundcloud.new({
+					  :client_id     => '0a5a8824df0c97aedb12448786a6f1de',
+					  :client_secret => 'd57204e408d1cc467f403174788a2397',
+					  :access_token      => @soundcloud_access_token
+					})
 
-			@sc = client.get('/me')
-			@tracks = client.get('/me/tracks')
+				@sc = client.get('/me')
+				@tracks = client.get('/me/tracks')
+			end
 		end
+		@mixcloud_access_token = current_user.mixcloud_access_token 
 	end
 	
 end
