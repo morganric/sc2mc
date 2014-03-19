@@ -5,6 +5,7 @@ require 'soundcloud'
 def index
 			
 	if current_user
+		if current_user.provider = 'soundcloud'
 		@soundcloud_access_token = current_user.access_token 
 		@mixcloud_access_token = current_user.mixcloud_access_token 
 
