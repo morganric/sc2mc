@@ -66,6 +66,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def failure
       #handle your logic here..
+      render :text => params.inspect
 
       #and delegate to super.
       super

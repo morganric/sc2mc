@@ -18,5 +18,5 @@
 <%= link_to 'Connect with MixCloud', user_omniauth_authorize_path(:mixcloud) %>
 <br/>
 <% if current_user.id === 4 || 3 %>
-<%= link_to 'Connect with Shopify', user_omniauth_authorize_path(:shopify) %>
+<%= link_to 'Connect with Shopify', user_omniauth_authorize_path(:shopify, :params => {:shop=> 'ticktack.myshopify.com'}) %>
 <% end %>
