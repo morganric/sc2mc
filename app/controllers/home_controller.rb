@@ -6,10 +6,11 @@ def index
 			
 	if current_user
 		@soundcloud_access_token = current_user.access_token 
+		@mixcloud_access_token = current_user.mixcloud_access_token 
 
 		 if @soundcloud_access_token != nil
 
-			client = SoundCloud.new({
+			client = Soundcloud.new({
 				  :client_id     => '0a5a8824df0c97aedb12448786a6f1de',
 				  :client_secret => 'd57204e408d1cc467f403174788a2397',
 				  :access_token      => @soundcloud_access_token
@@ -29,7 +30,7 @@ end
 
 def upload
 
-	require "omniauth-mixcloud"
+	@mixcloud_access_token = current_user.mixcloud_access_token 
 	@title = params[:track]['title']
 	@download_url = params[:track]['download_url']
 	@download_url = "#{@download_url}?client_id=0a5a8824df0c97aedb12448786a6f1de" 
@@ -47,15 +48,21 @@ def upload
 		  info.length   # playing time of the file
 		  info.bitrate  # average bitrate
 		  @info = info.to_h     # { "artist" => "artist", "title" => "title", etc... }
-		  return @info
-		end
+	  end
+
+
 	end
-end
+ 	
 
-def mixcloud
-	debugger
 
 end
+
+
+def successs
+
+end
+
+
 
 
 

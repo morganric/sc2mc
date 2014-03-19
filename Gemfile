@@ -23,6 +23,7 @@ gem 'open_uri_redirections'
 gem "ruby-audioinfo"
 gem "mixcloud"
 gem 'omniauth-mixcloud','~> 1.0.1', :git => 'git://github.com/morganric/omniauth-mixcloud.git'
+gem 'omniauth-shopify-oauth2'
 
 group :development, :test do
   gem  "debugger"

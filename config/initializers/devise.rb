@@ -229,6 +229,9 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :soundcloud, '0a5a8824df0c97aedb12448786a6f1de', 'd57204e408d1cc467f403174788a2397'
+  config.omniauth :shopify, '9827c3e04b5723a0a88c8b04efa7d851', '02484c88529509b26df76daf7c83df42', :scope => 'read_products,read_orders,write_content',
+            :setup => lambda { |env| params = Rack::Utils.parse_query(env['shop=example.myshopify.com'])
+                                     env['omniauth.strategy'].options[:client_options][:site] = "https://#{params['shop']}" }
   require "omniauth-mixcloud" 
   config.omniauth :mixcloud, 'wpLF5wDyDUQYQJnrFY', 'bwmCybqTBpAawF26yk4pxANwBC8MHYbp', {provider_ignores_state: true}
 

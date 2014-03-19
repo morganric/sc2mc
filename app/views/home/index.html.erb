@@ -5,7 +5,7 @@
 <% if @soundcloud_access_token != nil %>
 	<h2><%= @sc.username %></h2>
 	<p><%= @soundcloud_access_token %> | <%= @current_user.access_token %> </p>
-
+	<p><%= @mixcloud_access_token %> </p>
 	<ul>
 		<% @tracks.each do |track| %>
 			<li><%= link_to track.title, upload_path(:track => {title: track.title, download_url: track.download_url}), :method => :get %></li>
@@ -16,3 +16,7 @@
 
 <br/>
 <%= link_to 'Connect with MixCloud', user_omniauth_authorize_path(:mixcloud) %>
+<br/>
+<% if current_user.id === 4 %>
+<%= link_to 'Connect with Shopify', user_omniauth_authorize_path(:shopify) %>
+<% end %>
