@@ -5,8 +5,8 @@ require 'soundcloud'
 def index
 			
 	if current_user
-		if current_user.provider = 'soundcloud'
-		@soundcloud_access_token = current_user.access_token 
+		if current_user.provider == 'soundcloud'
+		  @soundcloud_access_token = current_user.access_token 
 
 			 if @soundcloud_access_token != nil
 
