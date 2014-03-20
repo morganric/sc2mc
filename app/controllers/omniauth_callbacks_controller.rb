@@ -64,6 +64,22 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
+
+      @mixcloud_code = params[:code]
+
+
+      require 'open-uri'
+      require 'json'
+
+      mixcloud_oauth_url = "https://www.mixcloud.com/oauth/access_token?client_id=wpLF5wDyDUQYQJnrFY&redirect_uri=#{user_omniauth_callback_url(:mixcloud)}&client_secret=bwmCybqTBpAawF26yk4pxANwBC8MHYbp&code=#{@mixcloud_code}"
+
+      @result = JSON.parse(open(mixcloud_oauth_url).read)
+
+      @mixcloud_access_token = @result["access_token"]
+      current_user.mixcloud_access_token = @mixcloud_access_token
+
+      current_user.save
+
       #handle your logic here..
       render :text => params.inspect
 
