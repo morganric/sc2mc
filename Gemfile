@@ -24,6 +24,7 @@ gem "ruby-audioinfo"
 gem "mixcloud"
 gem 'omniauth-mixcloud','~> 1.0.1', :git => 'git://github.com/morganric/omniauth-mixcloud.git'
 gem 'omniauth-shopify-oauth2'
+gem "mp4info", :git => "git://github.com/arbarlow/ruby-mp4info.git", :require => "mp4info"
 
 group :development, :test do
   gem  "debugger"

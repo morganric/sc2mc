@@ -36,26 +36,54 @@ def upload
 	@title = params[:track]['title']
 	@download_url = params[:track]['download_url']
 	@download_url = "#{@download_url}?client_id=0a5a8824df0c97aedb12448786a6f1de" 
+	@mp4 = URI.parse(@download_url)
+
 
 	require 'open-uri'
 	require 'open_uri_redirections'
 	require 'audioinfo'
-	open('track.m4a', 'wb') do |file|
-	  file << open(@download_url, :allow_redirections => :all).read
-	  @file = file
+	require 'mp4info'
 
-	  AudioInfo.open(@file) do |info|
-		  info.artist   # or info["artist"]
-		  info.title    # or info["title"]
-		  info.length   # playing time of the file
-		  info.bitrate  # average bitrate
-		  @info = info.to_h     # { "artist" => "artist", "title" => "title", etc... }
+	require 'open-uri'
+
+	open("track", "wb") do |file|
+	  open(@download_url, :allow_redirections => :all) do |uri|
+	     @file = file.write(uri.read)
 	  end
-
-
 	end
- 	
 
+
+	# open('track.m4a', 'wb') do |file|
+	#   file << open(@download_url, :allow_redirections => :all )  {|f| f.read }
+	#   @file = file
+
+	#   @mp4 = MP4Info.open(file)
+
+	#   # AudioInfo.open(@file) do |info|
+	# 	 #  info.artist   # or info["artist"]
+	# 	 #  info.title    # or info["title"]
+	# 	 #  info.length   # playing time of the file
+	# 	 #  info.bitrate  # average bitrate
+	# 	 #  @info = info.to_h     # { "artist" => "artist", "title" => "title", etc... }
+	#   # end
+
+
+	# end
+ 	
+	# require 'json'
+	# require 'open-uri'
+	# @result = open(@download_url, :allow_redirections => :all).read
+
+
+	# @result  = open(@download_url, :allow_redirections => :all) {|f| f.read }
+
+	#  AudioInfo.open(@result) do |info|
+	# 	  info.artist   # or info["artist"]
+	# 	  info.title    # or info["title"]
+	# 	  info.length   # playing time of the file
+	# 	  info.bitrate  # average bitrate
+	# 	  @info = info.to_h     # { "artist" => "artist", "title" => "title", etc... }
+	#   end
 
 end
 

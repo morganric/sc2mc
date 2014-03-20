@@ -1,51 +1,44 @@
 <h1>Upload to Mixcloud</h1>
 
 <%= link_to "Download #{@title}", @download_url %>
-<br/>
-<%= @info %>
+
 <br/>
 <p><%= @mixcloud_access_token %> </p>
-<p><%= @result %> </p>
 
 <%= link_to "track", "recording9.m4a" %>
 <br/>
-<audio controls="controls">
-  Your browser does not support the <code>audio</code> element.
-  <source src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg" type="audio/ogg">
-</audio>
-<br/>
 
 <audio controls="controls">
   Your browser does not support the <code>audio</code> element.
-  <source src="recording9.m4a" type="audio/mp4">
+  <source src="" type="audio/mp4">
 </audio>
 <br/>
 
 <button id="upload" >Upload</button>
 
-<script>
+<script type="text/javascript">
 		
 	var mixcloud_access_token = "<%= @mixcloud_access_token %>";
 	var download_url = "<%= @download_url %>";
 	console.log(download_url);
 	var file = "<%= @file %>";
 	var name = "<%= @title %>";
-	var	mixcloud_upload_url = "https://api.mixcloud.com/upload??access_token="+mixcloud_access_token+"&mp3="+file+"&name="+name;
+	var	mixcloud_upload_url = "https://api.mixcloud.com/upload/?access_token="+mixcloud_access_token+"&mp3="+file+"&name="+name;
 
-	$('button#upload').on('click', function() {
+	$('button#upload').on('click', function(event) {
+		console.log("fwjfwfjwifw");
+		event.preventDefault()
+
 		$.ajax({
-			url: mixcloud_upload_url,
-			dataType: "jsonp",
-			type: "post",
-			success: function(data) {
-				console.log(data);
-			}
-
-		});
+		  type: "POST",
+		  contentType: 'multipart/form-data',
+		  url: mixcloud_upload_url
+		})
+		  .done(function( msg ) {
+		    alert( "Data Saved: " + msg );
+		  });
 
 	});
-
-
 
 
 </script>
