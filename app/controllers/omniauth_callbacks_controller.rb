@@ -60,7 +60,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     current_user.mixcloud_access_token = @mixcloud_access_token
 
     current_user.save
-    redirect_to root_path
 
   end
 
