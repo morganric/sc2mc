@@ -64,7 +64,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-
+    
       @mixcloud_code = params[:code]
 
 
@@ -81,7 +81,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user.save
 
       #handle your logic here..
-      render :text => params.inspect
+      # render :text => params.inspect
 
       #and delegate to super.
       super
